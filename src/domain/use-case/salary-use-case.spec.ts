@@ -1,41 +1,6 @@
-class Employee {
-  salary: number
-
-  constructor (salary: number) {
-    this.salary = salary
-  }
-}
-
-class SalaryDomainService {
-  private employee: Employee
-
-  constructor (employee: Employee) {
-    this.employee = employee
-  }
-
-  async giveBonus (): Promise<void> {
-    if (this.employee.salary < 0) {
-      throw new OutOfRangeParam('Salário não pode ser negativo')
-    }
-    if (this.employee.salary >= 3000) {
-      throw new OutOfRangeParam('Salário maior ou igual a R$3000,00 não recebe bônus')
-    }
-    if (this.employee.salary < 1500) {
-      this.employee.salary = parseFloat((this.employee.salary * 1.15).toFixed(2))
-      return
-    }
-    if (this.employee.salary < 3000) {
-      this.employee.salary = parseFloat((this.employee.salary * 1.1).toFixed(2))
-    }
-  }
-}
-
-class OutOfRangeParam extends Error {
-  constructor (message: string) {
-    super(message)
-    this.name = 'OutOfRangeParam'
-  }
-}
+import { Employee } from '../entities/employee'
+import { SalaryDomainService } from './salary'
+import { OutOfRangeParam } from '../errors/out-of-range-param'
 
 describe('Salary use case', () => {
   test('Should give a bonus of 10% if employee salary is lower than R$3000,00', () => {
