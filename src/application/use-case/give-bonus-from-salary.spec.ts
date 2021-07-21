@@ -1,6 +1,6 @@
-import { Employee } from '../entities/employee'
+import { Employee } from '../../domain/entities/employee'
 import { GiveBonusService } from './give-bonus-from-salary'
-import { OutOfRangeParam } from '../errors/out-of-range-param'
+import { OutOfRangeParam } from '../../util/errors/out-of-range-param'
 
 describe('Salary use case', () => {
   test('Should return a bonus of 10% if employee salary is lower than R$3000,00', () => {

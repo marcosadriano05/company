@@ -1,6 +1,6 @@
-import { GiveBonusFromSalary } from '../contracts/give-bonus-from-salary'
-import { Employee } from '../entities/employee'
-import { OutOfRangeParam } from '../errors/out-of-range-param'
+import { GiveBonusFromSalary } from '../../domain/contracts/give-bonus-from-salary'
+import { Employee } from '../../domain/entities/employee'
+import { OutOfRangeParam } from '../../util/errors/out-of-range-param'
 
 export class GiveBonusService implements GiveBonusFromSalary {
   private employee: Employee
