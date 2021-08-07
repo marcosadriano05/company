@@ -1,5 +1,5 @@
 import { Employee } from '../../domain/entities'
-import { IncreaseSalaryService } from './increase-salary-per-year'
+import { IncreaseSalaryPerYear } from './increase-salary-per-year'
 
 describe('Increase salary per year use case', () => {
   const employee = new Employee('Marcos', 3000)
@@ -9,7 +9,7 @@ describe('Increase salary per year use case', () => {
     const ONE_YEAR_AGO_IN_MS = Date.now() - ONE_YEAR_IN_MS
     const oneYearAgo = new Date(ONE_YEAR_AGO_IN_MS)
     employee.setAdmissionDate(oneYearAgo)
-    const increaseSalaryService = new IncreaseSalaryService(employee)
+    const increaseSalaryService = new IncreaseSalaryPerYear(employee)
     const updatedEmployee = await increaseSalaryService.increase()
     expect(updatedEmployee.getSalary()).toBe(3150.00)
   })
@@ -19,7 +19,7 @@ describe('Increase salary per year use case', () => {
     const LESS_THAN_ONE_YEAR_AGO_IN_MS = Date.now() - LESS_THAN_A_YEAR_IN_MS
     const lessThanOneYearAgo = new Date(LESS_THAN_ONE_YEAR_AGO_IN_MS)
     employee.setAdmissionDate(lessThanOneYearAgo)
-    const increaseSalaryService = new IncreaseSalaryService(employee)
+    const increaseSalaryService = new IncreaseSalaryPerYear(employee)
     expect(increaseSalaryService.increase()).rejects.toThrow(new Error('Employee must have more than one year in company'))
   })
 })

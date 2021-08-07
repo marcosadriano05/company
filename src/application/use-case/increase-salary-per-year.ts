@@ -1,7 +1,7 @@
 import { Employee } from '../../domain/entities'
-import { IncreaseSalaryPerYear } from '../../domain/contracts'
+import { IncreaseSalary } from '../../domain/contracts'
 
-export class IncreaseSalaryService implements IncreaseSalaryPerYear {
+export class IncreaseSalaryPerYear implements IncreaseSalary {
   private employee: Employee
   private readonly ONE_YEAR_IN_MS: number = 31556952000
 

@@ -1,2 +1,2 @@
-export * from './give-bonus-from-salary'
-export * from './increase-salary-per-year'
+export * from './give-bonus'
+export * from './increase-salary'

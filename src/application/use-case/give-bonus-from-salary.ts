@@ -1,15 +1,15 @@
-import { GiveBonusFromSalary } from '../../domain/contracts'
+import { GiveBonus } from '../../domain/contracts'
 import { Employee } from '../../domain/entities'
 import { OutOfRangeParam } from '../../util/errors'
 
-export class GiveBonusService implements GiveBonusFromSalary {
+export class GiveBonusFromSalary implements GiveBonus {
   private employee: Employee
 
   constructor (employee: Employee) {
     this.employee = employee
   }
 
-  async exec (): Promise<number> {
+  async give (): Promise<number> {
     if (this.employee.getSalary() < 0) {
       throw new OutOfRangeParam('Salário não pode ser negativo')
     }
