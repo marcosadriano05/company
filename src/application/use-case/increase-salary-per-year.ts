@@ -10,14 +10,15 @@ export class IncreaseSalaryPerYear implements IncreaseSalary {
   }
 
   async increase (): Promise<Employee> {
-    const admissionDate = this.employee.getAdmissionDate()
+    const salaryReadjustmentDate = this.employee.getSalaryReadjustmentDate()
     const salary = this.employee.getSalary()
 
-    if (Date.now() - admissionDate.getTime() < this.ONE_YEAR_IN_MS) {
+    if (Date.now() - salaryReadjustmentDate.getTime() < this.ONE_YEAR_IN_MS) {
       throw new Error('Employee must have more than one year in company')
     }
 
     this.employee.setSalary(salary * 1.05)
+    this.employee.setSalaryReadjustmentDate(new Date(Date.now()))
     return this.employee
   }
 }

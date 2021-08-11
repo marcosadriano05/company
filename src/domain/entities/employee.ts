@@ -2,14 +2,13 @@ export class Employee {
   private name: string
   private salary: number
   private admissionDate: Date
+  private salaryReadjustmentDate: Date
 
   constructor (name: string, salary: number) {
     this.salary = salary
     this.name = name
-  }
-
-  getName (): string {
-    return this.name
+    this.admissionDate = new Date(Date.now())
+    this.salaryReadjustmentDate = new Date(Date.now())
   }
 
   getSalary (): number {
@@ -20,11 +19,11 @@ export class Employee {
     this.salary = salary
   }
 
-  getAdmissionDate (): Date {
-    return this.admissionDate
+  setSalaryReadjustmentDate (date: Date): void {
+    this.salaryReadjustmentDate = date
   }
 
-  setAdmissionDate (date: Date): void {
-    this.admissionDate = date
+  getSalaryReadjustmentDate (): Date {
+    return this.salaryReadjustmentDate
   }
 }
