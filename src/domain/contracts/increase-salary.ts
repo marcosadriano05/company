@@ -1,5 +1,5 @@
 import { Employee } from '../entities'
 
 export interface IncreaseSalary {
-  increase: () => Promise<Employee>
+  increase: (employee: Employee) => Promise<Employee>
 }

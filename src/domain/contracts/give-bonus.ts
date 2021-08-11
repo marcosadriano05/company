@@ -1,3 +1,5 @@
+import { Employee } from '../entities'
+
 export interface GiveBonus {
-  give: () => Promise<number>
+  give: (employee: Employee) => Promise<number>
 }
