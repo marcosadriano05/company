@@ -20,7 +20,7 @@ describe('Increase salary per year use case', () => {
     const lessThanOneYearAgo = new Date(LESS_THAN_ONE_YEAR_AGO_IN_MS)
     employee.setSalaryReadjustmentDate(lessThanOneYearAgo)
     const increaseSalaryService = new IncreaseSalaryPerYear(employee)
-    expect(increaseSalaryService.increase()).rejects.toThrow(new Error('Employee must have more than one year in company'))
+    expect(increaseSalaryService.increase()).rejects.toThrow(new Error('The range of readjustment date and the current date must be more than one year'))
   })
 
   test('Should update the salary readjustment date after increase salary', async () => {

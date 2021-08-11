@@ -14,7 +14,7 @@ export class IncreaseSalaryPerYear implements IncreaseSalary {
     const salary = this.employee.getSalary()
 
     if (Date.now() - salaryReadjustmentDate.getTime() < this.ONE_YEAR_IN_MS) {
-      throw new Error('Employee must have more than one year in company')
+      throw new Error('The range of readjustment date and the current date must be more than one year')
     }
 
     this.employee.setSalary(salary * 1.05)
