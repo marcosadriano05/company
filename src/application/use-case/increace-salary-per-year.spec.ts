@@ -30,8 +30,7 @@ describe('Increase salary per year use case', () => {
     employee.setSalaryReadjustmentDate(oneYearAgo)
     const increaseSalaryService = new IncreaseSalaryPerYear(employee)
     const updatedEmployee = await increaseSalaryService.increase()
-    const millisecondsMarginOfError = 100
     const millisecondsDifference = updatedEmployee.getSalaryReadjustmentDate().getTime() - Date.now()
-    expect(millisecondsDifference).toBeLessThan(millisecondsMarginOfError)
+    expect(millisecondsDifference).toBe(0)
   })
 })

@@ -8,7 +8,7 @@ export class Employee {
     this.salary = salary
     this.name = name
     this.admissionDate = new Date(Date.now())
-    this.salaryReadjustmentDate = new Date(Date.now())
+    this.salaryReadjustmentDate = this.admissionDate
   }
 
   getSalary (): number {
