@@ -15,8 +15,8 @@ export class Employee {
     return this.salary
   }
 
-  setSalary (salary: number): void {
-    this.salary = salary
+  increaseSalary (salary: number): void {
+    this.salary = this.salary + salary
   }
 
   setSalaryReadjustmentDate (date: Date): void {

@@ -12,7 +12,7 @@ export class IncreaseSalaryPerYear implements IncreaseSalary {
       throw new Error('The range of readjustment date and the current date must be more than one year')
     }
 
-    employee.setSalary(salary * 1.05)
+    employee.increaseSalary(salary * 0.05)
     employee.setSalaryReadjustmentDate(new Date(Date.now()))
     return employee
   }
